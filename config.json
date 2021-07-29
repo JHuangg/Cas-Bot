@@ -1,0 +1,11 @@
+{
+  "prefix": "!",
+  "token": "ODU0OTUyMTQyODk5NzczNDkx.YMraOw.WtwemjiboN9qEH9KfoAkdqXnB38",
+  "bot_age": 1,
+  "words_array": ["Hi", "Bye", "This is an array"],
+  "bot_info": {
+    "name": "Tutorial Bot",
+    "version": 1.0
+  },
+  "ticket_channel_id": "860269279575670834"
+}
