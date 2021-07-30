@@ -18,12 +18,3 @@ module.exports = {
     }
   },
 };
-
-// .then(() => {
-//   message.reply(`You have kicked ${user.tag}`);
-// })
-// .catch(err => {
-//   message.reply('Unable to kick member');
-//   console.error(err);
-// });
-//else the user is not in the sever

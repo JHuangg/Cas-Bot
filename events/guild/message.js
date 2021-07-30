@@ -1,7 +1,12 @@
 const config = require('../../config.json');
 module.exports = (Discord, client, message) => {
   const prefix = config.prefix;
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  if (
+    !message.content.startsWith(prefix) ||
+    message.author.bot ||
+    !message.guild
+  )
+    return;
 
   const args = message.content.slice(prefix.length).split(/ +/);
   const cmd = args.shift().toLowerCase();
