@@ -26,33 +26,12 @@ module.exports = {
 
         channel.setParent('870505075628457994');
 
-        const reaction = channel.send('Ready to close?');
-
-        try {
-          reaction.react('✔');
-        } catch (error) {
-          channel.send('Error sending emojis');
-          throw error;
-        }
-
-        const collector = reaction.createReactionCollector(
-          (reaction, user) =>
-            message.guild.member.cache
-              .find(member => member.id === user.id)
-              .hasPermissions('ADMINISTRATOR'),
-          {
-            dispose: true,
-          }
-        );
-
-        collector.on('collect', (reaction, user) => {
-          switch (reaction.emoji.name) {
-            case '✔':
-              channel.send('Deleting channel in 5 seconds....');
-              setTimeout(() => channel.delete(), 5000);
-              break;
-          }
-        });
+        let initMessage = channel
+          .send(new Discord.MessageEmbed().setDescription('Ready to close?'))
+          .then(message => {
+            message.react('✔');
+            message.pin();
+          });
       });
   },
 };
